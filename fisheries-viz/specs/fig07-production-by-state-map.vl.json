@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
-  "height": 560,
+  "height": 710,
   "title": {
     "text": "Where Australia's seafood is produced",
     "subtitle": [
@@ -19,7 +19,7 @@
       -28.695
     ],
     "translate": [
-      450.0,
+      350.0,
       280.0
     ]
   },
@@ -87,16 +87,16 @@
           "field": "tonnes_total",
           "type": "quantitative",
           "scale": {
+            "domain": [
+              0,
+              80000
+            ],
             "range": [
               250,
               7000
             ]
           },
-          "legend": {
-            "title": "Tonnes produced",
-            "orient": "bottom-left",
-            "format": ",.0f"
-          }
+          "legend": null
         },
         "color": {
           "field": "pct_farmed",
@@ -115,8 +115,11 @@
           },
           "legend": {
             "title": "Farmed share (%)",
-            "orient": "bottom-left",
-            "format": ".0f"
+            "orient": "bottom-right",
+            "format": ".0f",
+            "direction": "horizontal",
+            "gradientLength": 200,
+            "offset": 10
           }
         },
         "tooltip": [
@@ -150,6 +153,128 @@
             "format": ".0f"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 70,
+            "y": 640,
+            "tonnes_total": 5000
+          },
+          {
+            "x": 140,
+            "y": 640,
+            "tonnes_total": 25000
+          },
+          {
+            "x": 235,
+            "y": 640,
+            "tonnes_total": 75000
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "fill": "none",
+        "stroke": "#5b6770",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "tonnes_total",
+          "type": "quantitative",
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 70,
+            "y": 696,
+            "t": "5,000"
+          },
+          {
+            "x": 140,
+            "y": 696,
+            "t": "25,000"
+          },
+          {
+            "x": 235,
+            "y": 696,
+            "t": "75,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "#0b2a3c",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 24,
+            "y": 584,
+            "t": "Tonnes produced"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#0b2a3c",
+        "align": "left",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
       }
     },
     {
