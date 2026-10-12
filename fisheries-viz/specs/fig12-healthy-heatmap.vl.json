@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 460,
+  "height": 330,
+  "title": {
+    "text": "Which fisheries have the healthiest stocks?",
+    "subtitle": [
+      "Percentage of assessed stocks that are healthy, by fishery and year. The number after each",
+      "fishery is how many stocks it has."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "data/healthy_by_fishery.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.fishery + ' (' + datum.stocks_listed + ')'",
+      "as": "fishery_label"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "format": "d",
+        "labelFontSize": 10
+      }
+    },
+    "y": {
+      "field": "fishery_label",
+      "type": "nominal",
+      "sort": {
+        "field": "pct_healthy",
+        "op": "mean",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "domain": false,
+        "ticks": false,
+        "labelLimit": 260
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#ffffff",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "pct_healthy",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              50,
+              100
+            ],
+            "range": [
+              "#f6e3c4",
+              "#9fcbb8",
+              "#0f5c57"
+            ]
+          },
+          "legend": {
+            "title": "% healthy",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 200
+          }
+        },
+        "tooltip": [
+          {
+            "field": "fishery",
+            "title": "Fishery",
+            "type": "nominal"
+          },
+          {
+            "field": "year",
+            "title": "Year",
+            "type": "quantitative",
+            "format": "d"
+          },
+          {
+            "field": "pct_healthy",
+            "title": "% healthy",
+            "type": "quantitative",
+            "format": ".0f"
+          },
+          {
+            "field": "assessed",
+            "title": "Stocks assessed",
+            "type": "quantitative"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 9
+      },
+      "encoding": {
+        "text": {
+          "field": "pct_healthy",
+          "type": "quantitative",
+          "format": ".0f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct_healthy > 55",
+            "value": "#ffffff"
+          },
+          "value": "#0b2a3c"
+        }
+      }
+    }
+  ]
+}

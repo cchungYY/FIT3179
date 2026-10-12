@@ -1,0 +1,189 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 560,
+  "title": {
+    "text": "Where Commonwealth fishing happens, by year",
+    "subtitle": "Each patch is an area of ocean where fishing was mapped. Drag the slider to change the year.",
+    "anchor": "start",
+    "offset": 8
+  },
+  "projection": {
+    "type": "mercator",
+    "scale": 730.9,
+    "center": [
+      137.0,
+      -28.695
+    ],
+    "translate": [
+      350.0,
+      280.0
+    ]
+  },
+  "params": [
+    {
+      "name": "year_sel",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2024,
+        "step": 1,
+        "name": "Year  "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "../data/fishing_intensity.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.year == year_sel"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.3
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.intensity",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "Low",
+              "Medium",
+              "High"
+            ],
+            "range": [
+              "#cfe6ee",
+              "#4fa3b8",
+              "#0b4f6c"
+            ]
+          },
+          "legend": {
+            "title": "Fishing intensity",
+            "orient": "bottom-left",
+            "offset": 8
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.year",
+            "title": "Year",
+            "type": "quantitative",
+            "format": "d"
+          },
+          {
+            "field": "properties.intensity",
+            "title": "Fishing intensity",
+            "type": "ordinal"
+          },
+          {
+            "field": "properties.range",
+            "title": "Catch per km² (kg) in this class",
+            "type": "nominal"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e9ecee",
+        "stroke": "#c5ccd1",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id == 36"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1e7d0",
+        "stroke": "#9a8f78",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 138.5,
+            "lat": -11.0,
+            "t": "Gulf of Carpentaria"
+          },
+          {
+            "lon": 130,
+            "lat": -36.2,
+            "t": "Great Australian Bight"
+          },
+          {
+            "lon": 146.5,
+            "lat": -40.9,
+            "t": "Bass Strait"
+          },
+          {
+            "lon": 156,
+            "lat": -19,
+            "t": "Coral Sea"
+          },
+          {
+            "lon": 156,
+            "lat": -35,
+            "t": "Tasman Sea"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "color": "#5a7280"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

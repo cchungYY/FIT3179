@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 560,
+  "height": 330,
+  "title": {
+    "text": "One small fish dominates the catch by weight",
+    "subtitle": [
+      "Tonnes of wild-caught seafood in 2024–25 (preliminary). The line adds up each group's share of",
+      "all wild-caught tonnes."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "../data/catch_by_group_latest.csv"
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "tonnes",
+          "as": "cum"
+        }
+      ],
+      "sort": [
+        {
+          "field": "tonnes",
+          "order": "descending"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "calculate": "datum.cum / datum.total_tonnes",
+      "as": "cum_pct"
+    },
+    {
+      "calculate": "datum.tonnes / datum.total_tonnes",
+      "as": "share"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "cum_pct",
+          "as": "cum_max"
+        }
+      ]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "group",
+      "type": "nominal",
+      "sort": {
+        "field": "tonnes",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "labelAngle": -35,
+        "labelLimit": 150
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#0f6c7a",
+        "cornerRadiusTopLeft": 2,
+        "cornerRadiusTopRight": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "tonnes",
+          "type": "quantitative",
+          "axis": {
+            "title": "Tonnes caught",
+            "format": ",.0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "group",
+            "title": "Species group",
+            "type": "nominal"
+          },
+          {
+            "field": "tonnes",
+            "title": "Tonnes",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "share",
+            "title": "Share of all wild catch",
+            "type": "quantitative",
+            "format": ".0%"
+          },
+          {
+            "field": "value_aud_m",
+            "title": "Value (A$ millions)",
+            "type": "quantitative",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#2a2f36",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 50,
+          "color": "#2a2f36"
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "cum_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": {
+            "title": "Running share of all wild-caught tonnes",
+            "format": "%",
+            "orient": "right",
+            "titleColor": "#2a2f36"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.cum_pct == datum.cum_max"
+        },
+        {
+          "calculate": "'Top 10 groups = ' + format(datum.cum_pct, '.0%') + ' of all wild catch'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#2a2f36"
+      },
+      "encoding": {
+        "y": {
+          "field": "cum_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Four snapshots of the same ocean",
+    "subtitle": [
+      "Same colours and the same map area. The cut-offs between low, medium and high change each year, so compare where the dark patches are, not how",
+      "many there are."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
+  },
+  "hconcat": [
+    {
+      "width": 235,
+      "height": 235,
+      "title": {
+        "text": "2010",
+        "anchor": "start",
+        "fontSize": 14
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 258.9,
+        "center": [
+          137.0,
+          -28.695
+        ],
+        "translate": [
+          117.5,
+          117.5
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "../data/fishing_intensity.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.year == 2010"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#ffffff",
+            "strokeWidth": 0.2
+          },
+          "encoding": {
+            "color": {
+              "field": "properties.intensity",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Low",
+                  "Medium",
+                  "High"
+                ],
+                "range": [
+                  "#cfe6ee",
+                  "#4fa3b8",
+                  "#0b4f6c"
+                ]
+              },
+              "legend": {
+                "title": "Fishing intensity",
+                "orient": "bottom",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.year",
+                "title": "Year",
+                "type": "quantitative",
+                "format": "d"
+              },
+              {
+                "field": "properties.intensity",
+                "title": "Fishing intensity",
+                "type": "ordinal"
+              },
+              {
+                "field": "properties.range",
+                "title": "Catch per km² (kg) in this class",
+                "type": "nominal"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#e9ecee",
+            "stroke": "#c5ccd1",
+            "strokeWidth": 0.5
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.id == 36"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f1e7d0",
+            "stroke": "#9a8f78",
+            "strokeWidth": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "width": 235,
+      "height": 235,
+      "title": {
+        "text": "2015",
+        "anchor": "start",
+        "fontSize": 14
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 258.9,
+        "center": [
+          137.0,
+          -28.695
+        ],
+        "translate": [
+          117.5,
+          117.5
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "../data/fishing_intensity.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.year == 2015"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#ffffff",
+            "strokeWidth": 0.2
+          },
+          "encoding": {
+            "color": {
+              "field": "properties.intensity",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Low",
+                  "Medium",
+                  "High"
+                ],
+                "range": [
+                  "#cfe6ee",
+                  "#4fa3b8",
+                  "#0b4f6c"
+                ]
+              },
+              "legend": {
+                "title": "Fishing intensity",
+                "orient": "bottom",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.year",
+                "title": "Year",
+                "type": "quantitative",
+                "format": "d"
+              },
+              {
+                "field": "properties.intensity",
+                "title": "Fishing intensity",
+                "type": "ordinal"
+              },
+              {
+                "field": "properties.range",
+                "title": "Catch per km² (kg) in this class",
+                "type": "nominal"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#e9ecee",
+            "stroke": "#c5ccd1",
+            "strokeWidth": 0.5
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.id == 36"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f1e7d0",
+            "stroke": "#9a8f78",
+            "strokeWidth": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "width": 235,
+      "height": 235,
+      "title": {
+        "text": "2020",
+        "anchor": "start",
+        "fontSize": 14
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 258.9,
+        "center": [
+          137.0,
+          -28.695
+        ],
+        "translate": [
+          117.5,
+          117.5
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "../data/fishing_intensity.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.year == 2020"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#ffffff",
+            "strokeWidth": 0.2
+          },
+          "encoding": {
+            "color": {
+              "field": "properties.intensity",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Low",
+                  "Medium",
+                  "High"
+                ],
+                "range": [
+                  "#cfe6ee",
+                  "#4fa3b8",
+                  "#0b4f6c"
+                ]
+              },
+              "legend": {
+                "title": "Fishing intensity",
+                "orient": "bottom",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.year",
+                "title": "Year",
+                "type": "quantitative",
+                "format": "d"
+              },
+              {
+                "field": "properties.intensity",
+                "title": "Fishing intensity",
+                "type": "ordinal"
+              },
+              {
+                "field": "properties.range",
+                "title": "Catch per km² (kg) in this class",
+                "type": "nominal"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#e9ecee",
+            "stroke": "#c5ccd1",
+            "strokeWidth": 0.5
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.id == 36"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f1e7d0",
+            "stroke": "#9a8f78",
+            "strokeWidth": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "width": 235,
+      "height": 235,
+      "title": {
+        "text": "2024",
+        "anchor": "start",
+        "fontSize": 14
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 258.9,
+        "center": [
+          137.0,
+          -28.695
+        ],
+        "translate": [
+          117.5,
+          117.5
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "../data/fishing_intensity.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.year == 2024"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#ffffff",
+            "strokeWidth": 0.2
+          },
+          "encoding": {
+            "color": {
+              "field": "properties.intensity",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Low",
+                  "Medium",
+                  "High"
+                ],
+                "range": [
+                  "#cfe6ee",
+                  "#4fa3b8",
+                  "#0b4f6c"
+                ]
+              },
+              "legend": {
+                "title": "Fishing intensity",
+                "orient": "bottom",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.year",
+                "title": "Year",
+                "type": "quantitative",
+                "format": "d"
+              },
+              {
+                "field": "properties.intensity",
+                "title": "Fishing intensity",
+                "type": "ordinal"
+              },
+              {
+                "field": "properties.range",
+                "title": "Catch per km² (kg) in this class",
+                "type": "nominal"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#e9ecee",
+            "stroke": "#c5ccd1",
+            "strokeWidth": 0.5
+          }
+        },
+        {
+          "data": {
+            "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+            "format": {
+              "type": "topojson",
+              "feature": "countries"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.id == 36"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f1e7d0",
+            "stroke": "#9a8f78",
+            "strokeWidth": 0.7
+          }
+        }
+      ]
+    }
+  ]
+}

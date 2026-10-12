@@ -1,0 +1,129 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 560,
+  "title": {
+    "text": "Which waters are fished year after year?",
+    "subtitle": [
+      "Each hexagon covers about five 1° squares. Colour is the typical number of years, out of 15, that a fished",
+      "square inside it was fished."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "projection": {
+    "type": "mercator",
+    "scale": 685.1,
+    "center": [
+      134.0,
+      -29.974
+    ],
+    "translate": [
+      350.0,
+      280.0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/fishing_persistence_hex.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.avg_years",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              15
+            ],
+            "range": [
+              "#f4efd8",
+              "#6fb1a0",
+              "#0b4f6c"
+            ]
+          },
+          "legend": {
+            "title": "Typical years fished (of 15)",
+            "orient": "bottom-left",
+            "offset": 8,
+            "gradientLength": 180,
+            "values": [
+              1,
+              5,
+              10,
+              15
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.avg_years",
+            "title": "Typical years fished (of 15)",
+            "type": "quantitative",
+            "format": ".1f"
+          },
+          {
+            "field": "properties.cells",
+            "title": "1° squares ever fished here",
+            "type": "quantitative"
+          },
+          {
+            "field": "properties.cells_every_year",
+            "title": "Squares fished all 15 years",
+            "type": "quantitative"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e9ecee",
+        "stroke": "#c5ccd1",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id == 36"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1e7d0",
+        "stroke": "#9a8f78",
+        "strokeWidth": 0.7
+      }
+    }
+  ]
+}

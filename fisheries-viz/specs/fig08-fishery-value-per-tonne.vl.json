@@ -1,0 +1,250 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 560,
+  "height": 340,
+  "title": {
+    "text": "Fish are not all worth the same",
+    "subtitle": [
+      "Six Commonwealth fisheries in 2024–25 (preliminary). The dashed lines show a constant price per",
+      "kilogram."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "line": "$5 per kg",
+            "tonnes": 0,
+            "value": 0
+          },
+          {
+            "line": "$5 per kg",
+            "tonnes": 18000.0,
+            "value": 90
+          },
+          {
+            "line": "$10 per kg",
+            "tonnes": 0,
+            "value": 0
+          },
+          {
+            "line": "$10 per kg",
+            "tonnes": 9000.0,
+            "value": 90
+          },
+          {
+            "line": "$20 per kg",
+            "tonnes": 0,
+            "value": 0
+          },
+          {
+            "line": "$20 per kg",
+            "tonnes": 4500.0,
+            "value": 90
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "color": "#aab9c3",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "line",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "line": "$5 per kg",
+            "tonnes": 18000.0,
+            "value": 90
+          },
+          {
+            "line": "$10 per kg",
+            "tonnes": 9000.0,
+            "value": 90
+          },
+          {
+            "line": "$20 per kg",
+            "tonnes": 4500.0,
+            "value": 90
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "dy": 10,
+        "fontSize": 11,
+        "color": "#5d7384"
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "line",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/fisheries.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "size": 150,
+        "color": "#0f6c7a",
+        "opacity": 0.9,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              20000
+            ]
+          },
+          "axis": {
+            "title": "Tonnes caught",
+            "format": ",.0f",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              90
+            ]
+          },
+          "axis": {
+            "title": "Value of the catch (A$ millions)"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "fishery",
+            "title": "Fishery",
+            "type": "nominal"
+          },
+          {
+            "field": "tonnes",
+            "title": "Tonnes",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "value_aud_m",
+            "title": "Value (A$ millions)",
+            "type": "quantitative",
+            "format": ",.1f"
+          },
+          {
+            "field": "value_per_kg",
+            "title": "Dollars per kg",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/fisheries.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.tonnes < 12000"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -8,
+        "fontSize": 12,
+        "color": "#0b2a3c"
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "fishery",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/fisheries.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.tonnes >= 12000"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "dy": 14,
+        "fontSize": 12,
+        "color": "#0b2a3c"
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "fishery",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

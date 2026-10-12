@@ -1,0 +1,45 @@
+{
+  "background": "transparent",
+  "font": "Source Sans 3",
+  "view": {
+    "stroke": null
+  },
+  "title": {
+    "font": "Fraunces",
+    "fontSize": 17,
+    "fontWeight": 600,
+    "color": "#0b2a3c",
+    "subtitleFont": "Source Sans 3",
+    "subtitleFontSize": 12.5,
+    "subtitleColor": "#5d7384",
+    "subtitlePadding": 4
+  },
+  "axis": {
+    "labelFont": "Source Sans 3",
+    "titleFont": "Source Sans 3",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "titleFontWeight": 600,
+    "labelColor": "#40586a",
+    "titleColor": "#40586a",
+    "domainColor": "#b8c7d0",
+    "tickColor": "#b8c7d0",
+    "gridColor": "#e6edf1"
+  },
+  "legend": {
+    "labelFont": "Source Sans 3",
+    "titleFont": "Source Sans 3",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "titleFontWeight": 600,
+    "labelColor": "#40586a",
+    "titleColor": "#40586a"
+  },
+  "text": {
+    "font": "Source Sans 3",
+    "color": "#0b2a3c"
+  },
+  "concat": {
+    "spacing": 16
+  }
+}

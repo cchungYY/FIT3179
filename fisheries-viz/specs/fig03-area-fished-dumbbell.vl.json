@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "title": {
+    "text": "How much ocean is fished in each region",
+    "subtitle": [
+      "Area of the 1° squares where fishing was recorded, in thousand square kilometres. 2010 compared",
+      "with 2024."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "../data/area_fished_by_region.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#9fb4c0",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "region",
+          "type": "nominal",
+          "sort": {
+            "field": "area_2010",
+            "op": "max",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelLimit": 250,
+            "domain": false,
+            "ticks": false
+          }
+        },
+        "x": {
+          "field": "area_2010",
+          "type": "quantitative",
+          "axis": {
+            "title": "Area fished (thousand km²)"
+          }
+        },
+        "x2": {
+          "field": "area_2024"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "area_2010",
+            "area_2024"
+          ],
+          "as": [
+            "period",
+            "area"
+          ]
+        },
+        {
+          "calculate": "datum.period == 'area_2010' ? '2010' : '2024'",
+          "as": "year_label"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 120,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "region",
+          "type": "nominal",
+          "sort": {
+            "field": "area_2010",
+            "op": "max",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "area",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "year_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "2010",
+              "2024"
+            ],
+            "range": [
+              "#94a9b6",
+              "#0f6c7a"
+            ]
+          },
+          "legend": {
+            "title": "Year",
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "title": "Ocean region",
+            "type": "nominal"
+          },
+          {
+            "field": "year_label",
+            "title": "Year",
+            "type": "nominal"
+          },
+          {
+            "field": "area",
+            "title": "Area (thousand km²)",
+            "type": "quantitative",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ]
+}

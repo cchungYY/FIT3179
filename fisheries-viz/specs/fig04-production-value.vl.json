@@ -1,0 +1,148 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 620,
+  "height": 300,
+  "title": {
+    "text": "Farmed seafood has overtaken wild catch",
+    "subtitle": "Gross value of production in millions of dollars. Years end in June; 2025 is preliminary.",
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "../data/production_value.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "line": {
+          "strokeWidth": 1.5
+        },
+        "opacity": 0.9
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2011,
+              2025
+            ],
+            "nice": false
+          },
+          "axis": {
+            "format": "d",
+            "title": null,
+            "tickMinStep": 2,
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative",
+          "stack": "zero",
+          "axis": {
+            "title": "Value (A$ millions)",
+            "format": ",.0f"
+          }
+        },
+        "color": {
+          "field": "sector",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Wild-catch fisheries",
+              "Aquaculture"
+            ],
+            "range": [
+              "#0f6c7a",
+              "#c8641f"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "order": {
+          "field": "sector_order",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "title": "Year",
+            "type": "nominal"
+          },
+          {
+            "field": "sector",
+            "title": "Sector",
+            "type": "nominal"
+          },
+          {
+            "field": "value_aud_m",
+            "title": "A$ millions",
+            "type": "quantitative",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2020
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#0b2a3c"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2020,
+            "t": "2019–20: farmed seafood moves ahead"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#0b2a3c"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 14
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

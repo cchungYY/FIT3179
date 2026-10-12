@@ -1,0 +1,204 @@
+/* FIT3179 Data Visualisation 2 – Fishing the Australian ocean
+   Layout: one scrolling page, 1080px max, fits a 1280px laptop with no sideways scroll. */
+
+:root {
+  --ink: #0b2a3c;
+  --muted: #5d7384;
+  --teal: #0f6c7a;
+  --sand: #f6f1e6;
+  --mist: #eef4f7;
+  --rule: #d6e2e8;
+  --coral: #e0803a;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.wrap.narrow { max-width: 720px; }
+
+/* ---------- draft banner ---------- */
+.draft-banner {
+  background: #fff3cd;
+  color: #5c4500;
+  border-bottom: 1px solid #ecd58a;
+  padding: 8px 24px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  background: linear-gradient(180deg, #0b2a3c 0%, #0f4d5f 100%);
+  color: #ffffff;
+  padding: 72px 0 64px;
+}
+.kicker {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fd3dc;
+}
+.hero h1 {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.standfirst {
+  max-width: 640px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
+  color: #dcebf0;
+}
+
+/* ---------- sections ---------- */
+.story { padding: 72px 0 40px; }
+.story.alt { background: var(--mist); }
+
+.step {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.story h2, .takeaway h2, .credits h2 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.2;
+}
+.lede {
+  max-width: 640px;
+  margin: 0 0 40px;
+  font-size: 19px;
+  color: #29475a;
+}
+
+/* ---------- chart + text rows ---------- */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 700px) minmax(220px, 1fr);
+  column-gap: 40px;
+  align-items: center;
+  margin: 0 0 56px;
+}
+.row-flip { grid-template-columns: minmax(220px, 1fr) minmax(0, 700px); }
+.row-flip .vis-col { order: 2; }
+.row-flip .text-col { order: 1; }
+
+figure { margin: 0; position: relative; }
+.vis-col-narrow { max-width: 340px; }
+
+.text-col h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+}
+.text-col p { margin: 0 0 12px; max-width: 34em; }
+.how {
+  padding-left: 12px;
+  border-left: 3px solid var(--coral);
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.full { margin: 0 0 56px; }
+.caption {
+  max-width: 680px;
+  margin: 12px 0 0;
+  color: #29475a;
+}
+
+.vis { max-width: 100%; }
+.vis .vega-embed { display: block; }
+
+/* text that makes claims about placeholder charts: confirm it once the real data is in */
+.tbc { background: #fff3cd; border-radius: 3px; padding: 0 3px; }
+
+/* the small “placeholder data” tag, shown only while the draft flag is on */
+.ph {
+  display: none;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5c4500;
+  background: #fff3cd;
+  border: 1px solid #ecd58a;
+  border-radius: 10px;
+}
+body.placeholder .ph { display: inline-block; }
+
+/* vega-embed controls (year slider) */
+.vega-bindings {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.vega-bindings .vega-bind { display: flex; align-items: center; gap: 8px; }
+.vega-bindings input[type="range"] { width: 320px; accent-color: var(--teal); }
+
+/* ---------- takeaway ---------- */
+.takeaway { padding: 56px 0; background: var(--sand); }
+.takeaway p { font-size: 19px; margin: 0; }
+
+/* ---------- credits ---------- */
+.credits {
+  padding: 56px 0 72px;
+  background: #0b2a3c;
+  color: #dcebf0;
+  font-size: 15px;
+}
+.credits h2 { color: #ffffff; font-size: 26px; }
+.credits h3 {
+  margin: 0 0 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fd3dc;
+}
+.credits .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+.credits ul { margin: 0; padding-left: 18px; }
+.credits li { margin-bottom: 8px; }
+.credits a { color: #9fd3dc; }
+.credits code { font-size: 13px; background: rgba(255, 255, 255, 0.1); padding: 1px 5px; border-radius: 3px; }
+.todo { color: #ffd479; }
+.todo-note { margin: 12px 0 0; color: #b9cdd6; }
+
+/* ---------- smaller screens: stack everything ---------- */
+@media (max-width: 1100px) {
+  .row, .row-flip { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+  .row-flip .vis-col, .row-flip .text-col { order: initial; }
+  .credits .cols { grid-template-columns: 1fr; row-gap: 24px; }
+  .vis { overflow-x: auto; }
+}

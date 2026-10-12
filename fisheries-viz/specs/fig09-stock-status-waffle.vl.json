@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 300,
+  "title": {
+    "text": "Fish stocks in 2024, as 100 squares",
+    "subtitle": [
+      "One square is 1% of the 392 stocks with a known",
+      "status."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "data/waffle_2024.csv"
+  },
+  "mark": {
+    "type": "square",
+    "size": 640,
+    "opacity": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -0.5,
+          9.5
+        ]
+      },
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -0.5,
+          9.5
+        ],
+        "reverse": true
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Sustainable",
+          "Recovering",
+          "Depleting",
+          "Depleted"
+        ],
+        "range": [
+          "#1f7a74",
+          "#78b8a0",
+          "#eaa83a",
+          "#a63a32"
+        ]
+      },
+      "legend": {
+        "title": "Stock status",
+        "orient": "bottom",
+        "columns": 2,
+        "symbolType": "square"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "status",
+        "title": "Stock status",
+        "type": "nominal"
+      }
+    ]
+  }
+}

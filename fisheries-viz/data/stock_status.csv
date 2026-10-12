@@ -1,0 +1,106 @@
+year,status,status_order,stocks
+2004,Healthy,1,10
+2004,Uncertain,2,35
+2004,Overfishing,3,3
+2004,Overfished,4,14
+2004,Not assessed,5,25
+2005,Healthy,1,13
+2005,Uncertain,2,34
+2005,Overfishing,3,7
+2005,Overfished,4,17
+2005,Not assessed,5,16
+2006,Healthy,1,24
+2006,Uncertain,2,40
+2006,Overfishing,3,4
+2006,Overfished,4,15
+2006,Not assessed,5,11
+2007,Healthy,1,27
+2007,Uncertain,2,42
+2007,Overfishing,3,5
+2007,Overfished,4,11
+2007,Not assessed,5,12
+2008,Healthy,1,39
+2008,Uncertain,2,33
+2008,Overfishing,3,5
+2008,Overfished,4,13
+2008,Not assessed,5,10
+2009,Healthy,1,53
+2009,Uncertain,2,25
+2009,Overfishing,3,3
+2009,Overfished,4,11
+2009,Not assessed,5,8
+2010,Healthy,1,53
+2010,Uncertain,2,27
+2010,Overfishing,3,2
+2010,Overfished,4,10
+2010,Not assessed,5,8
+2011,Healthy,1,56
+2011,Uncertain,2,23
+2011,Overfishing,3,2
+2011,Overfished,4,10
+2011,Not assessed,5,9
+2012,Healthy,1,60
+2012,Uncertain,2,20
+2012,Overfishing,3,2
+2012,Overfished,4,9
+2012,Not assessed,5,9
+2013,Healthy,1,61
+2013,Uncertain,2,18
+2013,Overfishing,3,1
+2013,Overfished,4,11
+2013,Not assessed,5,9
+2014,Healthy,1,63
+2014,Uncertain,2,16
+2014,Overfishing,3,0
+2014,Overfished,4,12
+2014,Not assessed,5,9
+2015,Healthy,1,66
+2015,Uncertain,2,13
+2015,Overfishing,3,2
+2015,Overfished,4,11
+2015,Not assessed,5,8
+2016,Healthy,1,65
+2016,Uncertain,2,15
+2016,Overfishing,3,2
+2016,Overfished,4,11
+2016,Not assessed,5,7
+2017,Healthy,1,65
+2017,Uncertain,2,17
+2017,Overfishing,3,2
+2017,Overfished,4,10
+2017,Not assessed,5,6
+2018,Healthy,1,67
+2018,Uncertain,2,16
+2018,Overfishing,3,1
+2018,Overfished,4,11
+2018,Not assessed,5,5
+2019,Healthy,1,66
+2019,Uncertain,2,14
+2019,Overfishing,3,3
+2019,Overfished,4,12
+2019,Not assessed,5,5
+2020,Healthy,1,66
+2020,Uncertain,2,20
+2020,Overfishing,3,3
+2020,Overfished,4,11
+2020,Not assessed,5,0
+2021,Healthy,1,66
+2021,Uncertain,2,19
+2021,Overfishing,3,3
+2021,Overfished,4,13
+2021,Not assessed,5,0
+2022,Healthy,1,65
+2022,Uncertain,2,20
+2022,Overfishing,3,2
+2022,Overfished,4,15
+2022,Not assessed,5,0
+2023,Healthy,1,65
+2023,Uncertain,2,21
+2023,Overfishing,3,2
+2023,Overfished,4,14
+2023,Not assessed,5,0
+2024,Healthy,1,37
+2024,Uncertain,2,14
+2024,Overfishing,3,1
+2024,Overfished,4,4
+2024,Not assessed,5,46

@@ -1,0 +1,181 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 560,
+  "title": {
+    "text": "Where Australia's seafood is produced",
+    "subtitle": [
+      "Circle area shows tonnes produced in 2024–25 (preliminary), fished and farmed together. Colour shows how",
+      "much of it is farmed. Each circle sits on the state capital."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "projection": {
+    "type": "mercator",
+    "scale": 730.9,
+    "center": [
+      137.0,
+      -28.695
+    ],
+    "translate": [
+      450.0,
+      280.0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e9ecee",
+        "stroke": "#c5ccd1",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id == 36"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1e7d0",
+        "stroke": "#9a8f78",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "url": "../data/production_by_state.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.92,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "tonnes_total",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              250,
+              7000
+            ]
+          },
+          "legend": {
+            "title": "Tonnes produced",
+            "orient": "bottom-left",
+            "format": ",.0f"
+          }
+        },
+        "color": {
+          "field": "pct_farmed",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              50,
+              100
+            ],
+            "range": [
+              "#0f6c7a",
+              "#6b7a64",
+              "#c8641f"
+            ]
+          },
+          "legend": {
+            "title": "Farmed share (%)",
+            "orient": "bottom-left",
+            "format": ".0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "jurisdiction",
+            "title": "State or territory",
+            "type": "nominal"
+          },
+          {
+            "field": "tonnes_total",
+            "title": "Tonnes produced",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "tonnes_wild",
+            "title": "Wild-caught (t)",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "tonnes_farmed",
+            "title": "Farmed (t)",
+            "type": "quantitative",
+            "format": ",.0f"
+          },
+          {
+            "field": "pct_farmed",
+            "title": "Farmed share (%)",
+            "type": "quantitative",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "../data/production_by_state.csv"
+      },
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "#ffffff"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "jurisdiction",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

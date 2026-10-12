@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 960,
+  "height": 320,
+  "title": {
+    "text": "How the health of Commonwealth fish stocks has shifted",
+    "subtitle": "The thickness of each band is the number of stocks with that status. Stocks are counted from the year they first appear on the ABARES list.",
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "data/stock_status.csv"
+  },
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {
+        "format": "d",
+        "title": null,
+        "tickCount": 11,
+        "grid": false
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "stocks",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "order": {
+      "field": "status_order",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Healthy",
+          "Uncertain",
+          "Overfishing",
+          "Overfished",
+          "Not assessed"
+        ],
+        "range": [
+          "#1f7a74",
+          "#a3b4bf",
+          "#eaa83a",
+          "#a63a32",
+          "#e9eef1"
+        ]
+      },
+      "legend": {
+        "title": "Stock status",
+        "orient": "bottom",
+        "columns": 5,
+        "symbolType": "square"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Year",
+        "type": "quantitative",
+        "format": "d"
+      },
+      {
+        "field": "status",
+        "title": "Stock status",
+        "type": "nominal"
+      },
+      {
+        "field": "stocks",
+        "title": "Number of stocks",
+        "type": "quantitative"
+      }
+    ]
+  }
+}

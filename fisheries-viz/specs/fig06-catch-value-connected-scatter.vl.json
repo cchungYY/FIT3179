@@ -1,0 +1,199 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 560,
+  "height": 340,
+  "title": {
+    "text": "Same fish, different dollars",
+    "subtitle": [
+      "Each dot is one year of wild-caught seafood: tonnes caught across, dollar value up. The line",
+      "joins the years in order, darker dots are more recent."
+    ],
+    "anchor": "start",
+    "offset": 8
+  },
+  "data": {
+    "url": "../data/wild_catch_trend.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.year == 2021 ? datum.value_aud_m - 45 : datum.value_aud_m + 40",
+      "as": "label_y"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#9fb4c0",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes_thousand",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              145,
+              190
+            ],
+            "zero": false
+          },
+          "axis": {
+            "title": "Wild-caught seafood (thousand tonnes)",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1200,
+              1900
+            ],
+            "zero": false
+          },
+          "axis": {
+            "title": "Value (A$ millions)",
+            "format": ",.0f"
+          }
+        },
+        "order": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "opacity": 1,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes_thousand",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              145,
+              190
+            ],
+            "zero": false
+          },
+          "axis": {
+            "title": "Wild-caught seafood (thousand tonnes)",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "value_aud_m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1200,
+              1900
+            ],
+            "zero": false
+          },
+          "axis": {
+            "title": "Value (A$ millions)",
+            "format": ",.0f"
+          }
+        },
+        "color": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#a9d3de",
+              "#0b3a4d"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "title": "Year",
+            "type": "nominal"
+          },
+          {
+            "field": "tonnes_thousand",
+            "title": "Thousand tonnes",
+            "type": "quantitative",
+            "format": ".0f"
+          },
+          {
+            "field": "value_aud_m",
+            "title": "A$ millions",
+            "type": "quantitative",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof([2011, 2015, 2019, 2021, 2025], datum.year) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#0b2a3c"
+      },
+      "encoding": {
+        "x": {
+          "field": "tonnes_thousand",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 146,
+            "y": 1870,
+            "t": "2018–19 to 2020–21: tonnes down 3%, value down 18%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#c8641f"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}
