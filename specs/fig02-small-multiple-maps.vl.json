@@ -38,7 +38,7 @@
       "layer": [
         {
           "data": {
-            "url": "../data/fishing_intensity.geojson",
+            "url": "data/fishing_intensity.geojson",
             "format": {
               "type": "json",
               "property": "features"
@@ -161,7 +161,7 @@
       "layer": [
         {
           "data": {
-            "url": "../data/fishing_intensity.geojson",
+            "url": "data/fishing_intensity.geojson",
             "format": {
               "type": "json",
               "property": "features"
@@ -284,7 +284,7 @@
       "layer": [
         {
           "data": {
-            "url": "../data/fishing_intensity.geojson",
+            "url": "data/fishing_intensity.geojson",
             "format": {
               "type": "json",
               "property": "features"
@@ -407,7 +407,7 @@
       "layer": [
         {
           "data": {
-            "url": "../data/fishing_intensity.geojson",
+            "url": "data/fishing_intensity.geojson",
             "format": {
               "type": "json",
               "property": "features"
