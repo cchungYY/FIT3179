@@ -12,7 +12,7 @@
     "offset": 8
   },
   "data": {
-    "url": "../data/catch_by_group_latest.csv"
+    "url": "data/catch_by_group_latest.csv"
   },
   "transform": [
     {

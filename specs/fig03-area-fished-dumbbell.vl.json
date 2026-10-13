@@ -12,7 +12,7 @@
     "offset": 8
   },
   "data": {
-    "url": "../data/area_fished_by_region.csv"
+    "url": "data/area_fished_by_region.csv"
   },
   "layer": [
     {

@@ -12,7 +12,7 @@
     "offset": 8
   },
   "data": {
-    "url": "../data/wild_catch_trend.csv"
+    "url": "data/wild_catch_trend.csv"
   },
   "transform": [
     {

@@ -9,7 +9,7 @@
     "offset": 8
   },
   "data": {
-    "url": "../data/production_value.csv"
+    "url": "data/production_value.csv"
   },
   "layer": [
     {
