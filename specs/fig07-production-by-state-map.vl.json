@@ -279,7 +279,7 @@
     },
     {
       "data": {
-        "url": "../data/production_by_state.csv"
+        "url": "data/production_by_state.csv"
       },
       "mark": {
         "type": "text",
