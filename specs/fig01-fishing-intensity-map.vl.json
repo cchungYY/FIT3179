@@ -36,6 +36,25 @@
   "layer": [
     {
       "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.id == 36"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1e7d0",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
         "url": "data/fishing_intensity.geojson",
         "format": {
           "type": "json",
@@ -69,9 +88,13 @@
             ]
           },
           "legend": {
-            "title": "Fishing intensity",
+            "title": [
+              "Fishing intensity",
+              "catch weight, kg per km²"
+            ],
             "orient": "bottom-left",
-            "offset": 8
+            "offset": 8,
+            "labelExpr": "{\"2010\":{\"Low\":\"Low: under 60\",\"Medium\":\"Medium: 60 to 300\",\"High\":\"High: 300 to 900\"},\"2011\":{\"Low\":\"Low: under 60\",\"Medium\":\"Medium: 60 to 300\",\"High\":\"High: 300 to 854\"},\"2012\":{\"Medium\":\"Medium: 60 to 300\",\"Low\":\"Low: under 60\",\"High\":\"High: 300 to 800\"},\"2013\":{\"Medium\":\"Medium: 60 to 300\",\"Low\":\"Low: under 60\",\"High\":\"High: 300 to 900\"},\"2014\":{\"Low\":\"Low: under 50\",\"Medium\":\"Medium: 50 to 250\",\"High\":\"High: 250 to 815\"},\"2015\":{\"Medium\":\"Medium: 50 to 250\",\"Low\":\"Low: under 50\",\"High\":\"High: 250 to 900\"},\"2016\":{\"Low\":\"Low: under 200\",\"Medium\":\"Medium: 200 to 800\",\"High\":\"High: 800 to 1,600\"},\"2017\":{\"Low\":\"Low: under 100\",\"Medium\":\"Medium: 100 to 300\",\"High\":\"High: 300 to 900\"},\"2018\":{\"Low\":\"Low: under 150\",\"Medium\":\"Medium: 150 to 750\",\"High\":\"High: 750 to 1,800\"},\"2019\":{\"Low\":\"Low: under 500\",\"High\":\"High: 1,500 to 3,500\",\"Medium\":\"Medium: 500 to 1,500\"},\"2020\":{\"Low\":\"Low: under 250\",\"Medium\":\"Medium: 250 to 1,000\",\"High\":\"High: 1,000 to 2,750\"},\"2021\":{\"Low\":\"Low: under 250\",\"Medium\":\"Medium: 250 to 1,000\",\"High\":\"High: 1,000 to 2,500\"},\"2022\":{\"Low\":\"Low: under 300\",\"Medium\":\"Medium: 300 to 1,200\",\"High\":\"High: 1,200 to 3,200\"},\"2023\":{\"Low\":\"Low: under 300\",\"Medium\":\"Medium: 300 to 1,200\",\"High\":\"High: 1,200 to 3,100\"},\"2024\":{\"Low\":\"Low: under 300\",\"High\":\"High: 1,200 to 3,300\",\"Medium\":\"Medium: 300 to 1,200\"}}[toString(year_sel)][datum.label]"
           }
         },
         "tooltip": [
@@ -96,22 +119,22 @@
     },
     {
       "data": {
-        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "url": "data/state_borders.geojson",
         "format": {
-          "type": "topojson",
-          "feature": "countries"
+          "type": "json",
+          "property": "features"
         }
       },
-      "transform": [
-        {
-          "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
-        }
-      ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e9ecee",
-        "stroke": "#c5ccd1",
-        "strokeWidth": 0.5
+        "fill": null,
+        "stroke": "#8c8068",
+        "strokeWidth": 0.8,
+        "strokeDash": [
+          4,
+          3
+        ],
+        "opacity": 0.9
       }
     },
     {
@@ -129,9 +152,9 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#f1e7d0",
-        "stroke": "#9a8f78",
-        "strokeWidth": 0.7
+        "fill": null,
+        "stroke": "#7d725c",
+        "strokeWidth": 0.9
       }
     },
     {
