@@ -26,7 +26,7 @@ body {
   background: #ffffff;
 }
 
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.wrap { max-width: 92vw; margin: 0 auto; padding: 0 24px; }
 .wrap.narrow { max-width: 720px; }
 
 /* ---------- draft banner ---------- */
