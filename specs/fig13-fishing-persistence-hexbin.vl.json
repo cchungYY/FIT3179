@@ -39,7 +39,7 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#f1e7d0",
+        "fill": "#d3d6d9",
         "stroke": null
       }
     },
@@ -115,7 +115,7 @@
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#8c8068",
+        "stroke": "#6b7379",
         "strokeWidth": 0.8,
         "strokeDash": [
           4,
@@ -140,7 +140,7 @@
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#7d725c",
+        "stroke": "#6b7379",
         "strokeWidth": 0.9
       }
     }

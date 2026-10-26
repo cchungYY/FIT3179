@@ -72,7 +72,6 @@
     {
       "mark": {
         "type": "bar",
-        "color": "#0f6c7a",
         "cornerRadiusTopLeft": 2,
         "cornerRadiusTopRight": 2
       },
@@ -84,6 +83,37 @@
             "title": "Tonnes caught",
             "format": ",.0f"
           }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Australian Sardine",
+              "Prawns",
+              "Rock Lobsters",
+              "Tunas",
+              "Scallops",
+              "Sharks & Rays",
+              "Crabs",
+              "Flathead",
+              "Whitings",
+              "Mullets"
+            ],
+            "range": [
+              "#4e79a7",
+              "#f28e2b",
+              "#59a14f",
+              "#b07aa1",
+              "#e15759",
+              "#76b7b2",
+              "#edc948",
+              "#9c755f",
+              "#ff9da7",
+              "#7f7f7f"
+            ]
+          },
+          "legend": null
         },
         "tooltip": [
           {

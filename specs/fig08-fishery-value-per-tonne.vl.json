@@ -121,8 +121,7 @@
       "mark": {
         "type": "circle",
         "size": 150,
-        "color": "#0f6c7a",
-        "opacity": 0.9,
+        "opacity": 0.95,
         "stroke": "#ffffff",
         "strokeWidth": 1.5
       },
@@ -154,6 +153,29 @@
           "axis": {
             "title": "Value of the catch (A$ millions)"
           }
+        },
+        "color": {
+          "field": "fishery",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Northern Prawn",
+              "Torres Strait",
+              "South-east trawl",
+              "South-east gillnet, hook and trap",
+              "Great Australian Bight trawl",
+              "Eastern tuna and billfish"
+            ],
+            "range": [
+              "#4e79a7",
+              "#f28e2b",
+              "#59a14f",
+              "#b07aa1",
+              "#e15759",
+              "#76b7b2"
+            ]
+          },
+          "legend": null
         },
         "tooltip": [
           {
