@@ -106,14 +106,33 @@
           },
           "transform": [
             {
-              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+              "filter": "datum.id == 36"
             }
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#e9ecee",
-            "stroke": "#c5ccd1",
-            "strokeWidth": 0.5
+            "fill": "#f1e7d0",
+            "stroke": null
+          }
+        },
+        {
+          "data": {
+            "url": "data/state_borders.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#8c8068",
+            "strokeWidth": 0.8,
+            "strokeDash": [
+              4,
+              3
+            ],
+            "opacity": 0.9
           }
         },
         {
@@ -131,9 +150,9 @@
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f1e7d0",
-            "stroke": "#9a8f78",
-            "strokeWidth": 0.7
+            "fill": null,
+            "stroke": "#7d725c",
+            "strokeWidth": 0.9
           }
         }
       ]
@@ -229,14 +248,33 @@
           },
           "transform": [
             {
-              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+              "filter": "datum.id == 36"
             }
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#e9ecee",
-            "stroke": "#c5ccd1",
-            "strokeWidth": 0.5
+            "fill": "#f1e7d0",
+            "stroke": null
+          }
+        },
+        {
+          "data": {
+            "url": "data/state_borders.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#8c8068",
+            "strokeWidth": 0.8,
+            "strokeDash": [
+              4,
+              3
+            ],
+            "opacity": 0.9
           }
         },
         {
@@ -254,9 +292,9 @@
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f1e7d0",
-            "stroke": "#9a8f78",
-            "strokeWidth": 0.7
+            "fill": null,
+            "stroke": "#7d725c",
+            "strokeWidth": 0.9
           }
         }
       ]
@@ -352,14 +390,33 @@
           },
           "transform": [
             {
-              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+              "filter": "datum.id == 36"
             }
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#e9ecee",
-            "stroke": "#c5ccd1",
-            "strokeWidth": 0.5
+            "fill": "#f1e7d0",
+            "stroke": null
+          }
+        },
+        {
+          "data": {
+            "url": "data/state_borders.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#8c8068",
+            "strokeWidth": 0.8,
+            "strokeDash": [
+              4,
+              3
+            ],
+            "opacity": 0.9
           }
         },
         {
@@ -377,9 +434,9 @@
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f1e7d0",
-            "stroke": "#9a8f78",
-            "strokeWidth": 0.7
+            "fill": null,
+            "stroke": "#7d725c",
+            "strokeWidth": 0.9
           }
         }
       ]
@@ -475,14 +532,33 @@
           },
           "transform": [
             {
-              "filter": "indexof([360, 598, 554, 626], datum.id) >= 0"
+              "filter": "datum.id == 36"
             }
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#e9ecee",
-            "stroke": "#c5ccd1",
-            "strokeWidth": 0.5
+            "fill": "#f1e7d0",
+            "stroke": null
+          }
+        },
+        {
+          "data": {
+            "url": "data/state_borders.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#8c8068",
+            "strokeWidth": 0.8,
+            "strokeDash": [
+              4,
+              3
+            ],
+            "opacity": 0.9
           }
         },
         {
@@ -500,9 +576,9 @@
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f1e7d0",
-            "stroke": "#9a8f78",
-            "strokeWidth": 0.7
+            "fill": null,
+            "stroke": "#7d725c",
+            "strokeWidth": 0.9
           }
         }
       ]
