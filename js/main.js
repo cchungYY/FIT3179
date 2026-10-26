@@ -45,17 +45,6 @@ async function render() {
           renderer: "svg",
           actions: { export: true, source: true, compiled: false, editor: false },
         });
-        // Scale the finished chart down to fit its card, keeping its proportions.
-        const svg = target.querySelector("svg");
-        if (svg && svg.getAttribute("width")) {
-          const w = parseFloat(svg.getAttribute("width")), h = parseFloat(svg.getAttribute("height"));
-          svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-          svg.removeAttribute("width");
-          svg.removeAttribute("height");
-          svg.style.width = "100%";
-          svg.style.height = "auto";
-          svg.style.maxWidth = `${w}px`;
-        }
       } catch (err) {
         console.error(id, err);
         target.innerHTML =

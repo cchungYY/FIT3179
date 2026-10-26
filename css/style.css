@@ -26,7 +26,7 @@ body {
   background: #ffffff;
 }
 
-.wrap { max-width: 1600px; margin: 0 auto; padding: 0 32px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .wrap.narrow { max-width: 720px; }
 
 /* ---------- draft banner ---------- */
@@ -95,21 +95,7 @@ body {
   color: #29475a;
 }
 
-/* ---------- three cards across: chart on top, text underneath ---------- */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 40px;
-  row-gap: 48px;
-  align-items: start;
-  margin: 0 0 56px;
-}
-.cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.card .text-col { margin-top: 16px; }
-.card .text-col h3 { font-size: 20px; }
-.card .text-col p { max-width: none; }
-
-/* ---------- chart + text rows (older two-column layout, not used by the cards) ---------- */
+/* ---------- chart + text rows ---------- */
 .row {
   display: grid;
   grid-template-columns: minmax(0, 700px) minmax(220px, 1fr);
@@ -148,7 +134,6 @@ figure { margin: 0; position: relative; }
 
 .vis { max-width: 100%; }
 .vis .vega-embed { display: block; }
-.vis svg { display: block; }
 
 /* text that makes claims about placeholder charts: confirm it once the real data is in */
 .tbc { background: #fff3cd; border-radius: 3px; padding: 0 3px; }
@@ -212,7 +197,6 @@ body.placeholder .ph { display: inline-block; }
 
 /* ---------- smaller screens: stack everything ---------- */
 @media (max-width: 1100px) {
-  .cards, .cards-2 { grid-template-columns: minmax(0, 1fr); }
   .row, .row-flip { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
   .row-flip .vis-col, .row-flip .text-col { order: initial; }
   .credits .cols { grid-template-columns: 1fr; row-gap: 24px; }

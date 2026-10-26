@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
   <header class="hero">
     <div class="wrap">
       <p class="kicker">FIT3179 Data Visualisation 2 &middot; Australian fisheries</p>
@@ -39,10 +40,9 @@
           Darker patches mean more fish caught from each square kilometre of ocean. Paler patches mean less.
         </p>
 
-        <div class="cards">
-          <article class="card">
-            <figure><div class="vis" id="vis-fig01-fishing-intensity-map"></div></figure>
-            <div class="text-col">
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig01-fishing-intensity-map"></div></figure>
+          <div class="text-col">
             <h3>Start with the slider</h3>
             <p>Drag the year slider from 2010 to 2024. In the early 2010s the darkest patches are mostly in the Great Australian Bight
                and off south-eastern Australia. From 2016 they are mostly off the east coast.</p>
@@ -51,30 +51,6 @@
                so compare where the dark patches are, not how many there are.</p>
             <p class="how">Empty ocean does not always mean no fishing. ABARES only maps places where five or more vessels fished.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig03-area-fished-dumbbell"></div></figure>
-            <div class="text-col">
-            <h3>Growing or shrinking?</h3>
-            <p>Across all regions, the area of ocean where fishing was recorded fell from about 4.7 million km&sup2; in 2010 to
-               3.5 million km&sup2; in 2024, a drop of 26%. The Torres Strait and Coral Sea fell the most (down 53%). The south-east was
-               the only region that grew (up 12%).</p>
-            <p class="how">How to read it: each line links 2010 (grey) to 2024 (teal). If the teal dot is to the left of the grey dot, the region has shrunk.
-               A smaller area can partly mean fewer boats, because a square is only mapped when enough vessels fished there.
-               The regions are our own grouping of 1&deg; squares by position.</p>
-          </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig13-fishing-persistence-hexbin"></div></figure>
-            <div class="text-col">
-            <h3>Long-standing fishing grounds</h3>
-            <p>Fishing was recorded in 710 one-degree squares at least once between 2010 and 2024. Of these, 200 (28%) were fished in all 15 years
-               and 152 (21%) in only one. The Great Australian Bight is the most settled region: 28 of its 57 squares were fished every year.
-               Northern waters are the most changeable: 53 of 164 squares were fished in just one year.</p>
-            <p class="how">How to read it: each hexagon groups about five 1&deg; squares. Darker means the fished squares inside it were fished in more years.
-               Pale hexagons are waters fished only now and then. The regions are the same ones used in the chart above.</p>
-          </div>
-          </article>
         </div>
 
         <div class="full">
@@ -83,6 +59,30 @@
             spread evenly. It clusters in a few regions, and the darkest patches move from the south to the east coast.</p>
         </div>
 
+        <div class="row row-flip">
+          <figure class="vis-col"><div class="vis" id="vis-fig03-area-fished-dumbbell"></div></figure>
+          <div class="text-col">
+            <h3>Growing or shrinking?</h3>
+            <p>Across all regions, the area of ocean where fishing was recorded fell from about 4.7 million km&sup2; in 2010 to
+               3.5 million km&sup2; in 2024, a drop of 26%. The Torres Strait and Coral Sea fell the most (down 53%). The south-east was
+               the only region that grew (up 12%).</p>
+            <p class="how">How to read it: each line links 2010 (grey) to 2024 (teal). If the teal dot is to the left of the grey dot, the region has shrunk.
+               A smaller area can partly mean fewer boats, because a square is only mapped when enough vessels fished there.
+               The regions are our own grouping of 1&deg; squares by position.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig13-fishing-persistence-hexbin"></div></figure>
+          <div class="text-col">
+            <h3>Long-standing fishing grounds</h3>
+            <p>Fishing was recorded in 710 one-degree squares at least once between 2010 and 2024. Of these, 200 (28%) were fished in all 15 years
+               and 152 (21%) in only one. The Great Australian Bight is the most settled region: 28 of its 57 squares were fished every year.
+               Northern waters are the most changeable: 53 of 164 squares were fished in just one year.</p>
+            <p class="how">How to read it: each hexagon groups about five 1&deg; squares. Darker means the fished squares inside it were fished in more years.
+               Pale hexagons are waters fished only now and then. The regions are the same ones used in the chart above.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -97,42 +97,41 @@
           and where does it come from?
         </p>
 
-        <div class="cards">
-          <article class="card">
-            <figure><div class="vis" id="vis-fig04-production-value"></div></figure>
-            <div class="text-col">
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig04-production-value"></div></figure>
+          <div class="text-col">
             <h3>Farming has overtaken fishing</h3>
             <p>Wild-catch fisheries earned more than fish farms in every year from 2010&ndash;11 to 2018&ndash;19.
                From 2019&ndash;20, farmed seafood moved ahead. In 2024&ndash;25 it was worth about $2.1 billion, or 56% of the total,
                compared with $1.6 billion from wild catch.</p>
             <p class="how">How to read it: the height of each coloured band is that sector's value in a given year. Stacked together, the top edge is the combined value.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig05-catch-pareto"></div></figure>
-            <div class="text-col">
+        </div>
+
+        <div class="row row-flip">
+          <figure class="vis-col"><div class="vis" id="vis-fig05-catch-pareto"></div></figure>
+          <div class="text-col">
             <h3>One small fish dominates by weight</h3>
             <p>Australian sardines make up 28% of everything caught in the wild by weight: about 50,000 of 180,000 tonnes.
                But sardines are cheap. That whole catch was worth $36 million, while about 11,000 tonnes of rock lobster was worth $623 million.</p>
             <p class="how">How to read it: bars are tonnes, sorted from largest to smallest. The line adds each group to a running share of all wild-caught tonnes.
                The ten groups shown make up 58% of the total; the rest is &ldquo;other&rdquo; fish and many smaller groups.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig06-catch-value-connected-scatter"></div></figure>
-            <div class="text-col">
+        </div>
+
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig06-catch-value-connected-scatter"></div></figure>
+          <div class="text-col">
             <h3>The same catch, a different price</h3>
             <p>Australians have caught between about 150,000 and 185,000 tonnes of wild seafood every year since 2010&ndash;11.
                The dollar value moved much more. Between 2018&ndash;19 and 2020&ndash;21 the tonnes caught fell by 3%, yet their value fell by 18%.</p>
             <p class="how">How to read it: moving right means more fish, moving up means more dollars. Follow the line from 2010&ndash;11 to 2024&ndash;25.</p>
           </div>
-          </article>
         </div>
 
-        <div class="cards cards-2">
-          <article class="card">
-            <figure><div class="vis" id="vis-fig07-production-by-state-map"></div></figure>
-            <div class="text-col">
+        <div class="row row-flip">
+          <figure class="vis-col"><div class="vis" id="vis-fig07-production-by-state-map"></div></figure>
+          <div class="text-col">
             <h3>Where it comes from</h3>
             <p>Tasmania (78,000 tonnes) and South Australia (75,000 tonnes) produced far more than any other state.
                They get there in opposite ways. 92% of Tasmania's production is farmed, mostly salmon and trout.
@@ -140,10 +139,11 @@
             <p class="how">How to read it: bigger circles mean more tonnes. Teal circles are mostly wild-caught and orange circles are mostly farmed.
                Fisheries managed by the Commonwealth are not part of the state totals.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig08-fishery-value-per-tonne"></div></figure>
-            <div class="text-col">
+        </div>
+
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig08-fishery-value-per-tonne"></div></figure>
+          <div class="text-col">
             <h3>Fish are not all worth the same</h3>
             <p>A tonne from the Torres Strait fishery, where rock lobster makes most of the value, was worth about $25,000.
                A tonne from the Northern Prawn Fishery was worth about $15,500. A tonne from the south-east trawl fishery was worth
@@ -151,9 +151,7 @@
             <p class="how">How to read it: further right means more tonnes, higher up means more dollars. A fishery that sits close to a steeper dashed line earns more for each kilogram.
                South-east trawl is the trawl sector of the Southern and Eastern Scalefish and Shark Fishery.</p>
           </div>
-          </article>
         </div>
-
       </div>
     </section>
 
@@ -169,29 +167,39 @@
           A recovering stock is low but is being rebuilt.
         </p>
 
-        <div class="cards">
-          <article class="card">
-            <figure><div class="vis" id="vis-fig09-stock-status-waffle"></div></figure>
-            <div class="text-col">
+        <div class="row">
+          <figure class="vis-col vis-col-narrow"><div class="vis" id="vis-fig09-stock-status-waffle"></div></figure>
+          <div class="text-col">
             <h3>The 2024 snapshot</h3>
             <p>Of every 100 stocks that scientists could rate, 81 were sustainable and 12 were depleted. Another 111 stocks are
                left out: 39 are caught in very small amounts and 72 do not have enough data to rate.</p>
             <p class="how">How to read it: one square is one in every hundred rated stocks. Source: Status of Australian Fish Stocks (SAFS) 2024.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig11-stock-status-slope"></div></figure>
-            <div class="text-col">
+        </div>
+
+        <div class="full">
+          <figure><div class="vis" id="vis-fig10-stock-status-stream"></div></figure>
+          <p class="caption">A snapshot only tells part of the story. For the fish stocks managed by the Commonwealth, ABARES also
+            publishes a history. It asks two questions of each stock: is the stock big enough (not <em>overfished</em>), and is it being fished
+            too hard (not <em>overfishing</em>)? A stock is <em>healthy</em> when the answer to both is yes. The healthy band grew from 10 stocks in 2004 to 65 in 2023,
+            but the overfished band barely changed (14 stocks in 2004, 14 in 2023) while the uncertain band shrank from 35 to 21.
+            In 2024, 46 of the 102 stocks were listed as not assessed.</p>
+        </div>
+
+        <div class="row row-flip">
+          <figure class="vis-col"><div class="vis" id="vis-fig11-stock-status-slope"></div></figure>
+          <div class="text-col">
             <h3>Then and now</h3>
             <p>Strip away the years in between and compare 2008, the first year when nine in ten stocks were assessed, with 2024.
                Of the stocks that were assessed, the healthy share rose from 43% to 66%. The share of overfished stocks fell from 14% to 7%.</p>
             <p class="how">How to read it: each coloured line is one status. The labels show the three largest statuses; hover over any dot for the rest.
                Only 56 stocks were assessed in 2024, against 90 in 2008, so the 2024 shares rest on fewer stocks.</p>
           </div>
-          </article>
-          <article class="card">
-            <figure><div class="vis" id="vis-fig12-healthy-heatmap"></div></figure>
-            <div class="text-col">
+        </div>
+
+        <div class="row">
+          <figure class="vis-col"><div class="vis" id="vis-fig12-healthy-heatmap"></div></figure>
+          <div class="text-col">
             <h3>Not every fishery is equal</h3>
             <p>In 2023, every assessed stock in the Northern Prawn Fishery (6 stocks) and the Small Pelagic Fishery (7 stocks) was healthy.
                In the Coral Sea Fishery only 3 of 8 stocks (38%) were.</p>
@@ -199,18 +207,7 @@
                fishery was assessed that year. In 2024 several large fisheries, including the south-east trawl fishery, were not assessed.
                Fisheries with few stocks swing a lot when a single stock changes.</p>
           </div>
-          </article>
         </div>
-
-        <div class="full">
-          <figure><div class="vis" id="vis-fig10-stock-status-stream"></div></figure>
-          <p class="caption">The charts above show single years. For the fish stocks managed by the Commonwealth, ABARES also
-            publishes a history. It asks two questions of each stock: is the stock big enough (not <em>overfished</em>), and is it being fished
-            too hard (not <em>overfishing</em>)? A stock is <em>healthy</em> when the answer to both is yes. The healthy band grew from 10 stocks in 2004 to 65 in 2023,
-            but the overfished band barely changed (14 stocks in 2004, 14 in 2023) while the uncertain band shrank from 35 to 21.
-            In 2024, 46 of the 102 stocks were listed as not assessed.</p>
-        </div>
-
       </div>
     </section>
 
@@ -242,14 +239,14 @@
                 Values are shown as published by ABARES and are not adjusted for inflation here. 2024&ndash;25 figures are preliminary.</li>
             <li><strong>Stock status 2024 (chart 9):</strong> Status of Australian Fish Stocks (SAFS), 6th edition, 2024.
                 <a href="https://www.fish.gov.au">fish.gov.au</a>.</li>
-            <li><strong>Fishing intensity maps and area fished (charts 1 to 3 and 13):</strong> ABARES, <em>Fishery Status Reports 2025</em>, map data
+            <li><strong>Fishing intensity maps and area fished:</strong> ABARES, <em>Fishery Status Reports 2025</em>, map data
                 (ALLFSY geodatabase: relative fishing intensity and fishing footprint layers, 2010&ndash;2024). CC BY 4.0.
                 <a href="https://www.agriculture.gov.au/abares/research-topics/fisheries/fishery-status/fsr-map-data">ABARES fishery status map data</a>,
                 downloaded 26 September 2026.</li>
-            <li><strong>Stock status over time and by fishery (charts 10 to 12):</strong> ABARES, <em>Fishery Status Reports 2025</em>,
-                Appendix A, &ldquo;Biological status of stocks assessed in 2024, and their status since 1992&rdquo; (full history, CSV).
-                <a href="https://www.agriculture.gov.au/abares/research-topics/fisheries/fishery-status">ABARES fishery status reports</a>,
-                accessed 2 October 2026.</li>
+           <li><strong>Stock status over time and by fishery:</strong> ABARES, <em>Fishery Status Reports 2025</em>,
+              Appendix A, &ldquo;Biological status of stocks assessed in 2024, and their status since 1992&rdquo; (full history, CSV).
+              <a href="https://www.agriculture.gov.au/abares/research-topics/fisheries/fishery-status">ABARES fishery status reports</a>,
+              accessed 2 October 2026.</li>
             <li><strong>Base map:</strong> Natural Earth country outlines, loaded through the
                 <a href="https://github.com/vega/vega-datasets">vega-datasets</a> package (public domain).</li>
           </ul>
